@@ -1,0 +1,297 @@
+:root {
+  --titicaca:  #1a6fa8;
+  --candelaria:#ff7300ce;
+  --tierra:    #8b3a2a;
+  --bg:        #f5f0e8;
+  --bg2:       #e8e0d0;
+  --texto:     #1a1a2e;
+  --card:      #ffffff;
+  --navbar-bg: rgba(26, 26, 46, 0.96);
+  --footer-bg: #1a1a2e;
+  --radio:     14px;
+  --sombra:    0 6px 24px rgba(26,111,168,0.13);
+}
+
+[data-theme="dark"] {
+  --bg:   #0f1923;
+  --bg2:  #162130;
+  --texto:#e8e0d0;
+  --card: #1c2b3a;
+  --sombra: 0 6px 24px rgba(0,0,0,0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg);
+  color: var(--texto);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+  font-family: 'Yeseva One', serif;
+}
+
+#mainNav {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(8px);
+  padding: 0.7rem 0;
+  transition: background 0.3s;
+}
+.navbar-brand {
+  color: var(--candelaria) !important;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+.nav-link {
+  color: #ddd !important;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--candelaria) !important; }
+
+#inicio { height: 100vh; }
+#carouselPuno,
+#carouselPuno .carousel-inner,
+#carouselPuno .carousel-item { height: 100%; }
+
+.hero-slide {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: transparent;
+  z-index: 1;
+}
+.slide-1{
+  background: url('../Imagenes/Puno.png') center/cover no-repeat;
+}
+
+.slide-2{
+  background: url('../Imagenes/Candelaria.png') center/cover no-repeat;
+}
+
+.slide-3{
+  background: url('../Imagenes/Gastronomia.png') center/cover no-repeat;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.1;
+}
+.hero-content h1 span { color: var(--candelaria); }
+.hero-content p {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+  opacity: 0.9;
+}
+.badge-puno {
+  display: inline-block;
+  background: var(--candelaria);
+  color: #1a1a2e;
+  padding: 0.35rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  animation: fadeDown 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.section-pad { padding: 80px 0; }
+.bg-seccion  { background-color: var(--bg2); }
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  text-align: center;
+  color: var(--titicaca);
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--candelaria);
+  margin: 0.5rem auto 0;
+  border-radius: 4px;
+}
+
+.btn-filtro {
+  border: 2px solid var(--titicaca);
+  color: var(--titicaca);
+  background: transparent;
+  border-radius: 50px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.btn-filtro:hover,
+.btn-filtro.active {
+  background: var(--titicaca);
+  color: #fff;
+}
+
+.card-destino {
+  background: var(--card);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-destino:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(26,111,168,0.22);
+}
+.card-destino img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+.card-destino .card-body { padding: 1rem 1.5rem 1.5rem; }
+.card-destino .card-title {
+  font-family: 'Yeseva One', serif;
+  color: var(--titicaca);
+}
+
+   .img-cultura{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: block;
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--titicaca);
+  color: #fff;
+}
+.accordion-button:not(.collapsed)::after { filter: invert(1); }
+
+.info-box {
+  background: var(--card);
+  border-radius: var(--radio);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  border-left: 5px solid var(--candelaria);
+}
+
+.card-gastro {
+  background: var(--card);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.card-gastro:hover { transform: scale(1.04); }
+.card-gastro .gastro-top {
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 1.5rem 0 0.75rem;
+  background: linear-gradient(135deg, var(--titicaca), var(--tierra));
+}
+.card-gastro .card-body { padding: 1rem 1.5rem 1.5rem; }
+.card-gastro .card-title {
+  font-family: 'Yeseva One', serif;
+  color: var(--tierra);
+}
+
+.form-box {
+  background: var(--card);
+  border-radius: var(--radio);
+  padding: 2rem;
+  box-shadow: var(--sombra);
+}
+.btn-puno {
+  background: var(--titicaca);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-puno:hover {
+  background: var(--tierra);
+  color: #fff;
+  transform: translateY(-2px);
+}
+#resultadoItinerario {
+  background: var(--bg2);
+  border-radius: var(--radio);
+  padding: 1.5rem;
+  border-left: 4px solid var(--titicaca);
+}
+.dia-item {
+  background: var(--card);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+footer {
+  background: var(--footer-bg);
+  color: #ccc;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2.2rem; }
+  .section-pad { padding: 50px 0; }
+}
+.img-destino{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-destino{
+  overflow: hidden;
+}
+
+.card-destino:hover .img-destino{
+  transform: scale(1.05);
+}
+
+.img-destino{
+  transition: transform 0.4s ease;
+}
+.img-gastro{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+.navbar-toggler{
+    background-color: #d4a017;
+    border: none;
+}
